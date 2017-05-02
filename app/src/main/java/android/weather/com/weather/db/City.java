@@ -1,5 +1,6 @@
 package android.weather.com.weather.db;
 
+
 import org.litepal.crud.DataSupport;
 
 /**
