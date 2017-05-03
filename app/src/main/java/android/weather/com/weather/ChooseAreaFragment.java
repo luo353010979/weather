@@ -104,12 +104,12 @@ public class ChooseAreaFragment extends Fragment {
                     queryCounties();
                 } else if (currentLevel == LEVEL_COUNTY) {
                     String weatherId = countyList.get(i).getWeatherId();
-                    if(getActivity()instanceof MainActivity){
+                    if (getActivity() instanceof MainActivity) {
                         Intent intent = new Intent(getActivity(), WeatherActivity.class);
                         intent.putExtra("weather_id", weatherId);
                         startActivity(intent);
                         getActivity().finish();
-                    }else if(getActivity()instanceof WeatherActivity){
+                    } else if (getActivity() instanceof WeatherActivity) {
                         WeatherActivity activity = (WeatherActivity) getActivity();
                         activity.drawerLayout.closeDrawers();
                         activity.swipeRefresh.setRefreshing(true);
@@ -209,7 +209,7 @@ public class ChooseAreaFragment extends Fragment {
      */
     private void queryFromServer(String address, final String type) {
         showProgreesDialog();
-        HttpUtil.sendOkhttpRequset(address, new Callback() {
+        HttpUtil.sendOkHttpRequest(address, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 //通过runOnUiThread()方法回到主线程处理逻辑
